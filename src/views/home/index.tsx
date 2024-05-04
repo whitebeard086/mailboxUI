@@ -11,7 +11,7 @@ import {
 
 const Home = () => {
     const dispatch = useAppDispatch();
-    const { data, status } = useGetMessages({ paginate: true });
+    const { data, status } = useGetMessages({ fetch: true });
     const { user } = useAppSelector((state) => state.auth.profile);
     const { messages } = useAppSelector((state) => state.app.common);
 
