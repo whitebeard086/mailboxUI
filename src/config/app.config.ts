@@ -5,7 +5,7 @@ export type AppConfig = {
 }
 
 const appConfig: AppConfig = {
-    apiPrefix: 'http://mailbox.test/api',
+    apiPrefix: 'https://mailboxapi.anovahub.com/api',
     authenticatedEntryPath: '/',
     unAuthenticatedEntryPath: '/login',
 }

@@ -34,7 +34,7 @@ const Inbox = () => {
     const { user } = useAppSelector((state) => state.auth.profile);
     const { messages, messageData } = useAppSelector((state) => state.app.common);
 
-    const { data, status } = useGetMessages({
+    const { data, status, isFetching } = useGetMessages({
         fetch: paginate,
         page: pageNumber,
     });
@@ -151,7 +151,7 @@ const Inbox = () => {
                         <p className='text-gray-500 text-center'>
                             No more messages
                         </p>
-                    ) : status === 'pending' ? (
+                    ) : isFetching ? (
                         <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                     ) : (
                         <Button onClick={onLoadMore}>Load More</Button>
