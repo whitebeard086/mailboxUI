@@ -1,23 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { SLICE_BASE_NAME } from './constants'
+import { User } from '@/types/models'
 
 export type UserState = {
-    name?: string
-    email?: string
+    user: Partial<User>
 }
 
 const initialState: UserState = {
-    name: '',
-    email: '',
+    user: {}
 }
 
 const userSlice = createSlice({
-    name: `${SLICE_BASE_NAME}/user`,
+    name: `${SLICE_BASE_NAME}/profile`,
     initialState,
     reducers: {
-        setUser(state, action: PayloadAction<UserState>) {
-            state.email = action.payload?.email
-            state.name = action.payload?.name
+        setUser(state, action: PayloadAction<User | Partial<User>>) {
+            state.user = action.payload
         },
     },
 })

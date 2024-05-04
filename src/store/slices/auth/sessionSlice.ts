@@ -15,7 +15,7 @@ const sessionSlice = createSlice({
     name: `${SLICE_BASE_NAME}/session`,
     initialState,
     reducers: {
-        signInSuccess(state, action: PayloadAction<string>) {
+        setToken(state, action: PayloadAction<string>) {
             state.signedIn = true
             state.token = action.payload
         },
@@ -26,5 +26,5 @@ const sessionSlice = createSlice({
     },
 })
 
-export const { signInSuccess, signOutSuccess } = sessionSlice.actions
+export const { setToken, signOutSuccess } = sessionSlice.actions
 export default sessionSlice.reducer

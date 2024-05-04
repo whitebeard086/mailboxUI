@@ -12,6 +12,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { useLoginUser } from './utils/hooks';
 
 const formSchema = z.object({
     email: z.string({ message: 'Please enter your email address' }).email({ message: 'Invalid email address' }),
@@ -21,6 +22,9 @@ const formSchema = z.object({
 });
 
 const Login = () => {
+    const { mutate, status } = useLoginUser()
+    console.log(status);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -30,6 +34,10 @@ const Login = () => {
     });
 
     const submitForm = (values: z.infer<typeof formSchema>) => {
+        mutate({
+            email: values.email,
+            password: values.password
+        })
         console.log(values);
     };
 
