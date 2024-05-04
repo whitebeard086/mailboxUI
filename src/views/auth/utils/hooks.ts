@@ -38,10 +38,12 @@ export const useLogoutUser = () => {
         onSuccess: () => {
             dispatch(setToken(''));
             dispatch(setUser({}));
+            window.location.reload();
         },
         onError: () => {
             dispatch(setToken(''))
             dispatch(setUser({}));
+            window.location.reload();
         },
     });
 };
