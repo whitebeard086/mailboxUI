@@ -39,8 +39,9 @@ export const useLogoutUser = () => {
             dispatch(setToken(''));
             dispatch(setUser({}));
         },
-        onError: (error) => {
-            console.log(error);
+        onError: () => {
+            dispatch(setToken(''))
+            dispatch(setUser({}));
         },
     });
 };

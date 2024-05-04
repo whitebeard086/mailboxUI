@@ -7,10 +7,12 @@ import UnauthenticatedRoute from './unauthenticatedRoute';
 import Login from '@/views/auth/login';
 import Message from '@/views/inbox/message';
 import InboxRoot from '@/views/inbox/root';
+import Error from '@/views/errors/Error';
 
 export const router = createBrowserRouter([
     {
         path: '/',
+        errorElement: <Error />,
         children: [
             {
                 element: <UnauthenticatedRoute />,

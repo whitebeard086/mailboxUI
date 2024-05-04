@@ -9,3 +9,13 @@ export async function apiGetMessages<T, U extends Record<string, unknown>>(data:
         data,
     })
 }
+
+export async function apiGetMessage<T, U extends Record<string, unknown>>(data: U) {
+    const id = data.id
+    
+    return ApiService.fetchData<T>({
+        url: `/messages/${id}`,
+        method: 'get',
+        data,
+    })
+}

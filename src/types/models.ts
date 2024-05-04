@@ -2,8 +2,8 @@ export type User = {
     id: number
     name: string
     email: string
-    messagesCount?: number
-    unreadMessagesCount?: number
+    messagesCount: number
+    unreadMessagesCount: number
 }
 
 export type Message = {

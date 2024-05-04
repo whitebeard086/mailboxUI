@@ -28,12 +28,14 @@ const Header = () => {
                     <div className='flex items-center gap-6'>
                         <div className='relative'>
                             <MdEmail className='text-4xl' />
-                            <div className='absolute top-0 h-3 w-fit left-5 p-2 flex items-center justify-center rounded-full bg-red-500'>
-                                <span className='animate-ping h-3 w-full p-2 absolute top-0 left-0 inline-flex rounded-full bg-red-400 opacity-75'></span>
-                                <span className='text-xs text-white z-20'>
-                                    {user?.unreadMessagesCount ?? 0}
-                                </span>
-                            </div>
+                            {user.unreadMessagesCount !== undefined && user.unreadMessagesCount > 0 ? (
+                                <div className='absolute top-0 h-3 w-fit left-5 p-2 flex items-center justify-center rounded-full bg-red-500'>
+                                    <span className='animate-ping h-3 w-full p-2 absolute top-0 left-0 inline-flex rounded-full bg-red-400 opacity-75'></span>
+                                    <span className='text-xs text-white z-20'>
+                                        {user.unreadMessagesCount}
+                                    </span>
+                                </div>
+                            ) : null}
                         </div>
                         <div className='flex items-center gap-2'>
                             <h4 className='text-lg font-semibold'>{user?.name}</h4>

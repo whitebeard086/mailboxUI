@@ -1,4 +1,4 @@
-import { Message } from '@/types/models'
+import { Message, User } from '@/types/models'
 
 type Link = {
     active?: boolean
@@ -7,8 +7,12 @@ type Link = {
 }
 
 export type GetMessagesRequest = {
-    paginate?: boolean
+    fetch?: boolean
     page?: number
+}
+
+export type GetMessageRequest = {
+    id: number
 }
 
 export type MessagesResponse = {
@@ -29,4 +33,11 @@ export type MessagesResponse = {
         to?: number
         total?: number
     }
+}
+
+export type MessageResponse = {
+    data: Message
+}
+export type UserResponse = {
+    user: User
 }

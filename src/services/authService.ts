@@ -14,3 +14,10 @@ export async function apiLogoutUser() {
         method: 'post',
     })
 }
+
+export async function apiGetAuthenticatedUser<T>() {
+    return ApiService.fetchData<T>({
+        url: '/user',
+        method: 'get',
+    })
+}

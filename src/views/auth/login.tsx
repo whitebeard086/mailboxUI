@@ -22,8 +22,7 @@ const formSchema = z.object({
 });
 
 const Login = () => {
-    const { mutate, status } = useLoginUser()
-    console.log(status);
+    const { mutate } = useLoginUser()
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -38,7 +37,6 @@ const Login = () => {
             email: values.email,
             password: values.password
         })
-        console.log(values);
     };
 
     return (
