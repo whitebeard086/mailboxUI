@@ -1,18 +1,21 @@
-import { apiGetMessages } from '@/components/services/messageService'
-import { useQuery } from '@tanstack/react-query'
-import { GetMessagesRequest, MessagesResponse } from './types'
+import { apiGetMessages } from '@/services/messageService';
+import { useQuery } from '@tanstack/react-query';
+import { GetMessagesRequest, MessagesResponse } from './types';
 // import { useAppDispatch } from '@/store'
 
 export const useGetMessages = (data: GetMessagesRequest) => {
     return useQuery({
         queryKey: ['getMessages'],
         queryFn: async () => {
-            const response = await apiGetMessages<MessagesResponse, GetMessagesRequest>(data)
-            return response.data
+            const response = await apiGetMessages<
+                MessagesResponse,
+                GetMessagesRequest
+            >(data);
+            return response.data;
         },
-        enabled: data.paginate
-    })
-}
+        enabled: data.paginate,
+    });
+};
 
 // export const useGetMessages = () => {
 //     const queryClient = useQueryClient()
